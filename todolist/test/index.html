@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+
+	<body>
+		<div id="outDiv">
+			<div id="middleDiv">
+				<div id="inDiv">请在此点击鼠标。</div>
+			</div>
+		</div>
+
+		<div id="info"></div>
+	</body>
+	<script>
+		(function(){
+			var outDiv = document.getElementById("outDiv");
+			var middleDiv = document.getElementById("middleDiv");
+			var inDiv = document.getElementById("inDiv");
+			var info = document.getElementById("info");
+//			//useCapture-false,触发顺序为由内到外
+//			outDiv.addEventListener("click", function () { info.innerHTML += "outDiv" + "<br>"; }, false);
+//			middleDiv.addEventListener("click", function () { info.innerHTML += "middleDiv" + "<br>"; }, false);
+//			inDiv.addEventListener("click", function () { info.innerHTML += "inDiv" + "<br>"; }, false);
+			//useCapture-false,触发顺序为由外到内
+			outDiv.addEventListener("click", function () { info.innerHTML += "outDiv" + "<br>"; }, true);
+			middleDiv.addEventListener("click", function () { info.innerHTML += "middleDiv" + "<br>"; }, true);
+			inDiv.addEventListener("click", function () { info.innerHTML += "inDiv" + "<br>"; }, true);
+		})()
+	</script>
+</html>
